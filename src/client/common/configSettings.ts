@@ -113,7 +113,7 @@ export class PythonSettings implements IPythonSettings {
     public datascience!: IDataScienceSettings;
     public insidersChannel!: ExtensionChannels;
     public experiments!: IExperiments;
-    public languageServer: LanguageServerType = LanguageServerType.Microsoft;
+    public readonly languageServer: LanguageServerType = LanguageServerType.Node;
     public logging: ILoggingSettings = { level: LogLevel.Error };
 
     protected readonly changed = new EventEmitter<void>();
@@ -231,12 +231,12 @@ export class PythonSettings implements IPythonSettings {
             pythonSettings.get<boolean>('autoUpdateLanguageServer', true)
         )!;
 
-        let ls = pythonSettings.get<LanguageServerType>('languageServer') ?? LanguageServerType.Jedi;
-        ls = systemVariables.resolveAny(ls);
-        if (!Object.values(LanguageServerType).includes(ls)) {
-            ls = LanguageServerType.Jedi;
-        }
-        this.languageServer = ls;
+        // let ls = pythonSettings.get<LanguageServerType>('languageServer') ?? LanguageServerType.Jedi;
+        // ls = systemVariables.resolveAny(ls);
+        // if (!Object.values(LanguageServerType).includes(ls)) {
+        //     ls = LanguageServerType.Jedi;
+        // }
+        // this.languageServer = ls;
 
         // tslint:disable-next-line:no-backbone-get-set-outside-model no-non-null-assertion
         this.jediPath = systemVariables.resolveAny(pythonSettings.get<string>('jediPath'))!;

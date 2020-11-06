@@ -2,7 +2,7 @@
     "name": "python",
     "displayName": "Python",
     "description": "Linting, Debugging (multi-threaded, remote), Intellisense, Jupyter Notebooks, code formatting, refactoring, unit tests, snippets, and more.",
-    "version": "2020.10.0",
+    "version": "2020.12.0-dev.pylanceqp.1",
     "featureFlags": {
         "usingNewInterpreterStorage": true
     },
@@ -104,6 +104,9 @@
         "workspaceContains:mspythonconfig.json",
         "workspaceContains:pyproject.toml",
         "onCustomEditor:ms-python.python.notebook.ipynb"
+    ],
+    "extensionDependencies": [
+        "ms-python.vscode-pylance"
     ],
     "main": "./out/client/extension",
     "contributes": {
